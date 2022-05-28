@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home.homeFragment">
+
+   <com.google.android.material.floatingactionbutton.FloatingActionButton
+       android:id="@+id/add"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_margin="20dp"
+       android:layout_marginBottom="16dp"
+       android:src="@drawable/ic_baseline_add_24"
+       app:backgroundTint="#BBC1EA"
+       app:borderWidth="0dp"
+       app:elevation="16dp"
+       app:fabSize="normal"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.498"
+       app:layout_constraintStart_toStartOf="parent" />
+
+   <ImageView
+       android:id="@+id/ImageView"
+       android:layout_width="373dp"
+       android:layout_height="216dp"
+       android:layout_margin="16dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.026"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       android:scaleType="centerCrop"
+       android:src="@drawable/homeimage1"
+       app:layout_constraintVertical_bias="0.031" />
+
+   <TextView
+       android:id="@+id/e1"
+       android:layout_width="79dp"
+       android:layout_height="32dp"
+       android:layout_marginStart="28dp"
+       android:text="Name"
+       android:textStyle="bold"
+       android:textColor="#FF935BED"
+       android:textSize="20sp"
+       app:layout_constraintEnd_toStartOf="@+id/medicineName"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/ImageView"
+
+       app:layout_constraintVertical_bias="0.168" />
+
+   <EditText
+       android:id="@+id/medicineName"
+       android:layout_width="256dp"
+       android:layout_height="55dp"
+       android:layout_marginStart="8dp"
+       android:layout_marginTop="64dp"
+       android:background="@drawable/edittext_back1"
+       android:editable="false"
+       android:hint="Med Name"
+       android:inputType="text"
+       android:paddingStart="15dp"
+       android:textColor="@color/black"
+       android:textColorHint="#464646"
+       app:layout_constraintBottom_toBottomOf="@+id/e1"
+       app:layout_constraintStart_toEndOf="@+id/e1"
+       app:layout_constraintTop_toBottomOf="@id/ImageView" />
+
+   <TextView
+       android:id="@+id/e2"
+       android:layout_width="79dp"
+       android:layout_height="32dp"
+       android:layout_marginStart="28dp"
+       android:layout_marginEnd="8dp"
+       android:text="Days"
+       android:textColor="#FF935BED"
+       android:textSize="20sp"
+       android:textStyle="bold"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toStartOf="@+id/MedicineDays"
+
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/e1"
+       app:layout_constraintVertical_bias="0.168" />
+
+   <EditText
+       android:id="@+id/MedicineDays"
+       android:layout_width="256dp"
+       android:layout_height="55dp"
+       android:layout_marginStart="8dp"
+       android:layout_marginTop="32dp"
+       android:background="@drawable/edittext_back1"
+       android:editable="false"
+       android:hint="Course Duration"
+       android:inputType="text"
+       android:paddingStart="15dp"
+       android:textColor="@color/black"
+       android:textColorHint="#464646"
+       app:layout_constraintBottom_toBottomOf="@+id/e2"
+       app:layout_constraintStart_toEndOf="@+id/e1"
+       app:layout_constraintTop_toBottomOf="@id/medicineName" />
+
+   <TextView
+       android:id="@+id/e3"
+       android:layout_width="79dp"
+       android:layout_height="32dp"
+       android:layout_marginStart="28dp"
+       android:text="Times"
+       android:textColor="#FF935BED"
+       android:textSize="20sp"
+       android:textStyle="bold"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toStartOf="@+id/MedicineTimes"
+       app:layout_constraintHorizontal_bias="0.0"
+
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/e2"
+       app:layout_constraintVertical_bias="0.2" />
+
+   <EditText
+       android:id="@+id/MedicineTimes"
+       android:layout_width="256dp"
+       android:layout_height="55dp"
+       android:layout_marginStart="8dp"
+       android:layout_marginTop="32dp"
+       android:background="@drawable/edittext_back1"
+       android:editable="false"
+       android:hint="Doses Per Day"
+       android:inputType="text"
+       android:paddingStart="15dp"
+       android:textColor="@color/black"
+       android:textColorHint="#464646"
+       app:layout_constraintBottom_toBottomOf="@+id/e3"
+       app:layout_constraintStart_toEndOf="@+id/e1"
+       app:layout_constraintTop_toBottomOf="@id/MedicineDays" />
+
+   <androidx.appcompat.widget.AppCompatButton
+       android:layout_width="124dp"
+       android:layout_height="47dp"
+       android:layout_marginTop="20dp"
+       android:layout_marginEnd="40dp"
+       android:background="@drawable/buttonstyle"
+       android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"
+       android:drawablePadding="35dp"
+       android:text="----"
+       android:id="@+id/nextHome"
+       android:textColor="@color/black"
+       android:textSize="10sp"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/MedicineTimes" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

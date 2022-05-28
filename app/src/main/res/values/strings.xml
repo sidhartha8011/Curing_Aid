@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Curing Aid</string>
+    <string name="welcome">WELCOME</string>
+    <string name="patient">patient</string>
+    <string name="pharmacy">PHARMACY</string>
+    <string name="login">LOGIN</string>
+    <string name="register_patient">Register Patient</string>
+    <string name="name">Name</string>
+    <string name="password">Password</string>
+    <string name="course_of_days">Course of Days</string>
+    <string name="age">Age</string>
+    <string name="already_have_an_account_login">Already have an Account? Login</string>
+    <string name="register">Register</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_home_page">HomePage</string>
+    <string name="title_activity_main_page">MainPage</string>
+    <string name="title_activity_home_screen">homeScreen</string>
+    <string name="title_activity_home">home_activity</string>
+    <string name="title_activity_curing_home">CuringHome</string>
+    <string name="self_test">Self Test</string>
+    <string name="profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="doses">Doses</string>
+</resources>

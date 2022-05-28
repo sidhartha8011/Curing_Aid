@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1045028350848",
+    "project_id": "curing-aid-ddbef",
+    "storage_bucket": "curing-aid-ddbef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1045028350848:android:73b8546526477c3b316f65",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1045028350848-c03oltji7rrhuk6q54vl1b9csmmf31jg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArbk3bB9xXLfuPJ_UhLXryJRXBaMUZ7DM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1045028350848-c03oltji7rrhuk6q54vl1b9csmmf31jg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
