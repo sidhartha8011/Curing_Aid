@@ -15,7 +15,7 @@
         android:fontFamily="@font/poppins"
         android:gravity="center"
         android:text="Sign Up"
-        android:textColor="@color/blue"
+        android:textColor="@color/primaryColor"
         android:textSize="45sp"
 
         app:layout_constraintEnd_toEndOf="parent"
@@ -105,7 +105,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:background="@color/blue"
+            android:background="@color/primaryColor"
             android:gravity="center"
 
             android:padding="10dp"

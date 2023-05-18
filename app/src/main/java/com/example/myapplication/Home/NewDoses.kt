@@ -13,6 +13,8 @@ import com.example.myapplication.R
 import com.example.myapplication.data.MedData
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class NewDoses : Fragment() {
 
@@ -36,6 +38,7 @@ class NewDoses : Fragment() {
 
         val auth = FirebaseAuth.getInstance().currentUser
 
+        val db=Firebase.firestore
 
         button.setOnClickListener {
 
@@ -48,11 +51,27 @@ class NewDoses : Fragment() {
                 return@setOnClickListener
             }
 
-            val database = FirebaseDatabase.getInstance().getReference("Medicine")
+          //  val database = FirebaseDatabase.getInstance().getReference("Medicine")
+           val ref=db.collection(auth!!.uid)
             val data = MedData(name, days.toInt(), times.toInt())
             if (auth != null) {
 
-                database.child(auth.uid).child(e4.text.toString()).setValue(data).addOnCompleteListener {
+//                database.child(auth.uid).child(e4.text.toString()).setValue(data).addOnCompleteListener {
+//                    Toast.makeText(context, "Successfully Added", Toast.LENGTH_LONG).show()
+//                    fragmentManager?.beginTransaction()
+//                        ?.replace(R.id.fragment_container, homeFragment())
+//                        ?.addToBackStack(null)
+//                        ?.commit()
+//                }
+//                    .addOnFailureListener {
+//                        Toast.makeText(
+//                            context,
+//                            "Something went wrong ${it.message}",
+//                            Toast.LENGTH_LONG
+//                        ).show()
+//                    }
+
+                ref.document().set(data).addOnCompleteListener{
                     Toast.makeText(context, "Successfully Added", Toast.LENGTH_LONG).show()
                     fragmentManager?.beginTransaction()
                         ?.replace(R.id.fragment_container, homeFragment())
@@ -66,9 +85,9 @@ class NewDoses : Fragment() {
                             Toast.LENGTH_LONG
                         ).show()
                     }
+                }
             }
         }
     }
 
-}
 

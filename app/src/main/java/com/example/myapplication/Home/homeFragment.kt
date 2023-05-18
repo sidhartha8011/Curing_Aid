@@ -14,6 +14,8 @@ import com.example.myapplication.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 
 class homeFragment : Fragment() {
@@ -34,10 +36,11 @@ class homeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        var counter:Int=1
+       val db=Firebase.firestore
 
-        val database= FirebaseDatabase.getInstance().getReference("Medicine")
+//        val database= FirebaseDatabase.getInstance().getReference("Medicine")
 
+        val ref=db.collection("Medicine")
 
 
 
@@ -48,9 +51,10 @@ class homeFragment : Fragment() {
         val auth=FirebaseAuth.getInstance().currentUser
 
 
-        database.child(auth?.uid.toString()).child(counter.toString()).get().addOnSuccessListener {
+//        database.child(auth?.uid.toString()).child(counter.toString()).get().addOnSuccessListener {
+        ref.document(auth!!.uid).get().addOnSuccessListener{
             if(it.exists()) {
-
+                val data=
                 val name = it.child("medName").value
                 val Days = it.child("days").value
                 val Time = it.child("times").value
