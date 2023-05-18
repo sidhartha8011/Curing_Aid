@@ -14,6 +14,8 @@ import com.example.myapplication.signup.Signup
 import com.example.myapplication.signup.SignupContinue
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class LoginScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +27,8 @@ class LoginScreen : AppCompatActivity() {
         val e2: EditText =findViewById(R.id.loginPass)
 
         val auth= FirebaseAuth.getInstance()
+
+        val db=Firebase.firestore
 
         val b1: Button =findViewById(R.id.button4)
 
@@ -38,22 +42,33 @@ class LoginScreen : AppCompatActivity() {
             }
             auth.signInWithEmailAndPassword(name,pass)
                 .addOnCompleteListener {
-                    if(it.isSuccessful)
-                    {
-                        val database= FirebaseDatabase.getInstance().getReference("Users")
-                        database.child(auth.currentUser!!.uid).get().addOnSuccessListener { dataSnapshot ->
-                            if (dataSnapshot.exists()){
+                    if(it.isSuccessful){
+//                    {
+//                        val database= FirebaseDatabase.getInstance().getReference("Users")
+//                        database.child(auth.currentUser!!.uid).get().addOnSuccessListener { dataSnapshot ->
+//                            if (dataSnapshot.exists()){
+//                                Toast.makeText(this,"login success", Toast.LENGTH_SHORT).show()
+//                                val i=Intent(this,HomeScreen::class.java)
+//                                startActivity(i)
+//                            }
+//                            else{
+//                                val intent= Intent(this, SignupContinue::class.java)
+//                                startActivity(intent)
+//                                finish()
+//                            }
+//                        }
+                        val ref=db.collection("Users")
+                        ref.document(auth.uid.toString()).get().addOnSuccessListener {
+                            if(it.exists()){
                                 Toast.makeText(this,"login success", Toast.LENGTH_SHORT).show()
                                 val i=Intent(this,HomeScreen::class.java)
                                 startActivity(i)
-                            }
-                            else{
+                            }  else{
                                 val intent= Intent(this, SignupContinue::class.java)
                                 startActivity(intent)
                                 finish()
                             }
                         }
-
                     }
                     else{
                         Toast.makeText(this,it.exception?.message, Toast.LENGTH_LONG).show()

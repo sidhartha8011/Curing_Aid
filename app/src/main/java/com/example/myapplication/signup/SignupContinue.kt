@@ -14,6 +14,8 @@ import com.example.myapplication.data.RegistrationData
 import com.example.myapplication.login.LoginScreen
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class SignupContinue : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,6 +35,10 @@ class SignupContinue : AppCompatActivity() {
 
         val database=FirebaseDatabase.getInstance().getReference("Users")
 
+        val db= Firebase.firestore
+
+        val ref=db.collection("Users")
+
         b1.setOnClickListener{
 
             val name=e1.text.toString()
@@ -47,7 +53,19 @@ class SignupContinue : AppCompatActivity() {
 
             val data=RegistrationData(name,age.toInt(),phnumber.toLong(),days.toInt())
             if (auth != null) {
-                database.child(auth.uid).setValue(data).addOnCompleteListener {
+//                database.child(auth.uid).setValue(data).addOnCompleteListener {
+//                    Toast.makeText(this,"Registraion Complete",Toast.LENGTH_LONG).show()
+//                    val i=Intent(this, HomeScreen::class.java)
+//                    startActivity(i)
+//                }
+//                    .addOnFailureListener{
+//                        Toast.makeText(
+//                            this,
+//                            "Something went wrong ${it.message}",
+//                            Toast.LENGTH_LONG
+//                        ).show()
+//                    }
+                ref.document(auth.uid.toString()).set(data).addOnSuccessListener {
                     Toast.makeText(this,"Registraion Complete",Toast.LENGTH_LONG).show()
                     val i=Intent(this, HomeScreen::class.java)
                     startActivity(i)
@@ -59,7 +77,12 @@ class SignupContinue : AppCompatActivity() {
                             Toast.LENGTH_LONG
                         ).show()
                     }
+
+
+
+
             }
+
         }
 
 

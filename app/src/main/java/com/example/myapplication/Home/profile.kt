@@ -13,6 +13,7 @@ import com.example.myapplication.MainActivity
 import com.example.myapplication.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class profile : Fragment() {
@@ -34,7 +35,9 @@ class profile : Fragment() {
 
         val id= auth?.uid
 
-        val database1=FirebaseDatabase.getInstance().getReference("Users")
+        val db=Firebase.firestore
+
+        val database1=db.collection("Users")
 
         val database2=FirebaseDatabase.getInstance().getReference("Medicine")
 
@@ -45,11 +48,12 @@ class profile : Fragment() {
         val tf5:TextView=view.findViewById(R.id.profileage)
 
 
-        database1.child(id.toString()).get().addOnSuccessListener {
-            val name=it.child("name").value
-            val age=it.child("age").value
-            val phoneno=it.child("phoneNo").value
-            val days=it.child("course").value
+        database1.document(id.toString()).get().addOnSuccessListener {
+            val data=it.data
+            val name= data?.get("name")
+            val age=data?.get("age")
+            val phoneno=data?.get("phoneNo")
+            val days=data?.get("course")
 
 
             tf1.text=name.toString()
@@ -63,9 +67,11 @@ class profile : Fragment() {
         val signout:Button=view.findViewById(R.id.signout)
 
         signout.setOnClickListener {
+
             FirebaseAuth.getInstance().signOut()
             val i=Intent(context,MainActivity::class.java)
             startActivity(i)
+
         }
 
     }
