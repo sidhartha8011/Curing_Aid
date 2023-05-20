@@ -1,3 +1,3 @@
 package com.example.myapplication.data
 
-data class MedData(val medName:String, val days:Int, val times:Int)
+data class MedData(val medName:String, val days:Int, val times:Int,val today:Int=0)

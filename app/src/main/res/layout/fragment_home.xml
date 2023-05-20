@@ -33,30 +33,31 @@
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toTopOf="parent"
        android:scaleType="centerCrop"
-       android:src="@drawable/homeimage1"
+      android:src="@mipmap/home12"
        app:layout_constraintVertical_bias="0.031" />
 
    <TextView
        android:id="@+id/e1"
        android:layout_width="79dp"
        android:layout_height="32dp"
+       android:fontFamily="@font/poppins"
        android:layout_marginStart="28dp"
        android:text="Name"
-       android:textStyle="bold"
        android:textColor="@color/primaryDarkColor"
        android:textSize="20sp"
-       app:layout_constraintEnd_toStartOf="@+id/medicineName"
+       android:textStyle="bold"
        app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toStartOf="@+id/medicineName"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/ImageView"
 
-       app:layout_constraintVertical_bias="0.168" />
+       app:layout_constraintVertical_bias="0.134" />
 
    <EditText
        android:id="@+id/medicineName"
-       android:layout_width="256dp"
-       android:layout_height="55dp"
-       android:layout_marginStart="8dp"
+       android:layout_width="224dp"
+       android:layout_height="47dp"
+       android:layout_marginStart="44dp"
        android:layout_marginTop="64dp"
        android:background="@drawable/edittext_back1"
        android:editable="false"
@@ -71,26 +72,28 @@
 
    <TextView
        android:id="@+id/e2"
-       android:layout_width="79dp"
-       android:layout_height="32dp"
+       android:layout_width="116dp"
+       android:layout_height="57dp"
        android:layout_marginStart="28dp"
        android:layout_marginEnd="8dp"
-       android:text="Days"
+       android:fontFamily="@font/poppins"
+       android:text="Days Remaining"
        android:textColor="@color/primaryDarkColor"
        android:textSize="20sp"
        android:textStyle="bold"
        app:layout_constraintBottom_toBottomOf="parent"
        app:layout_constraintEnd_toStartOf="@+id/MedicineDays"
 
+       app:layout_constraintHorizontal_bias="1.0"
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/e1"
-       app:layout_constraintVertical_bias="0.168" />
+       app:layout_constraintVertical_bias="0.059" />
 
    <EditText
        android:id="@+id/MedicineDays"
-       android:layout_width="256dp"
-       android:layout_height="55dp"
-       android:layout_marginStart="8dp"
+       android:layout_width="224dp"
+       android:layout_height="47dp"
+       android:layout_marginStart="44dp"
        android:layout_marginTop="32dp"
        android:background="@drawable/edittext_back1"
        android:editable="false"
@@ -101,14 +104,16 @@
        android:textColorHint="#464646"
        app:layout_constraintBottom_toBottomOf="@+id/e2"
        app:layout_constraintStart_toEndOf="@+id/e1"
-       app:layout_constraintTop_toBottomOf="@id/medicineName" />
+       app:layout_constraintTop_toBottomOf="@id/medicineName"
+       app:layout_constraintVertical_bias="1.0" />
 
    <TextView
        android:id="@+id/e3"
-       android:layout_width="79dp"
-       android:layout_height="32dp"
+       android:layout_width="134dp"
+       android:layout_height="38dp"
        android:layout_marginStart="28dp"
-       android:text="Times"
+       android:fontFamily="@font/poppins"
+       android:text="Prescribed"
        android:textColor="@color/primaryDarkColor"
        android:textSize="20sp"
        android:textStyle="bold"
@@ -118,13 +123,13 @@
 
        app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintTop_toBottomOf="@+id/e2"
-       app:layout_constraintVertical_bias="0.2" />
+       app:layout_constraintVertical_bias="0.127" />
 
    <EditText
        android:id="@+id/MedicineTimes"
-       android:layout_width="256dp"
-       android:layout_height="55dp"
-       android:layout_marginStart="8dp"
+       android:layout_width="184dp"
+       android:layout_height="45dp"
+       android:layout_marginStart="84dp"
        android:layout_marginTop="32dp"
        android:background="@drawable/edittext_back1"
        android:editable="false"
@@ -135,21 +140,78 @@
        android:textColorHint="#464646"
        app:layout_constraintBottom_toBottomOf="@+id/e3"
        app:layout_constraintStart_toEndOf="@+id/e1"
-       app:layout_constraintTop_toBottomOf="@id/MedicineDays" />
+       app:layout_constraintTop_toBottomOf="@id/MedicineDays"
+       app:layout_constraintVertical_bias="1.0" />
+
+   <TextView
+       android:id="@+id/e4"
+       android:layout_width="123dp"
+       android:layout_height="34dp"
+       android:layout_marginStart="28dp"
+       android:layout_marginEnd="8dp"
+       android:fontFamily="@font/poppins"
+       android:text="Doses Took today"
+       android:textColor="@color/primaryDarkColor"
+       android:textSize="20sp"
+       android:textStyle="bold"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toStartOf="@+id/remainingDosage"
+
+       app:layout_constraintHorizontal_bias="0.0"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@+id/e3"
+       app:layout_constraintVertical_bias="0.167" />
+
+
+   <EditText
+       android:id="@+id/remainingDosage"
+       android:layout_width="172dp"
+       android:layout_height="47dp"
+       android:layout_marginStart="52dp"
+       android:layout_marginTop="32dp"
+       android:background="@drawable/edittext_back1"
+       android:editable="false"
+       android:hint="0"
+       android:inputType="text"
+       android:paddingStart="15dp"
+       android:textColor="@color/black"
+       android:textColorHint="#464646"
+       app:layout_constraintBottom_toBottomOf="@+id/e4"
+       app:layout_constraintStart_toEndOf="@+id/e4"
+       app:layout_constraintTop_toBottomOf="@id/MedicineTimes"
+       app:layout_constraintVertical_bias="1.0" />
 
    <androidx.appcompat.widget.AppCompatButton
-       android:layout_width="124dp"
+       android:layout_width="120dp"
        android:layout_height="47dp"
        android:layout_marginTop="20dp"
        android:layout_marginEnd="40dp"
        android:background="@drawable/buttonstyle"
        android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_right_24"
        android:drawablePadding="35dp"
-       android:text="----"
+       android:text="next"
        android:id="@+id/nextHome"
        android:textColor="@color/black"
        android:textSize="10sp"
        app:layout_constraintEnd_toEndOf="parent"
-       app:layout_constraintTop_toBottomOf="@id/MedicineTimes" />
+       app:layout_constraintTop_toBottomOf="@id/remainingDosage" />
+
+   <androidx.appcompat.widget.AppCompatButton
+       android:id="@+id/takeDose"
+       android:layout_width="199dp"
+       android:layout_height="50dp"
+       android:layout_marginTop="20dp"
+
+
+       android:background="@drawable/buttonstyle"
+       android:drawablePadding="35dp"
+       android:text="Take Dosage/MArk DOsage"
+       android:textColor="@color/black"
+       android:textSize="10sp"
+       app:layout_constraintEnd_toStartOf="@+id/nextHome"
+       app:layout_constraintHorizontal_bias="0.538"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toBottomOf="@id/remainingDosage" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
