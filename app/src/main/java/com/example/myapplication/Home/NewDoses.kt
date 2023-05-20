@@ -34,7 +34,7 @@ class NewDoses : Fragment() {
         val e1: EditText = view.findViewById(R.id.mediName)
         val e2: EditText = view.findViewById(R.id.MedDays)
         val e3: EditText = view.findViewById(R.id.MedDoses)
-        val e4: EditText= view.findViewById(R.id.medNumber)
+      //  val e4: EditText= view.findViewById(R.id.medNumber)
 
         val auth = FirebaseAuth.getInstance().currentUser
 

@@ -25,17 +25,17 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:src="@drawable/ic_baseline_local_hospital_24" />
-        <EditText
-            android:id="@+id/medNumber"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_margin="8dp"
-            android:background="@drawable/edittext_back1"
-            android:hint="Medicine Number"
-            android:inputType="text"
-            android:paddingStart="15dp"
-            android:textColor="@color/black"
-            android:textColorHint="#464646" />
+<!--        <EditText-->
+<!--            android:id="@+id/medNumber"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="55dp"-->
+<!--            android:layout_margin="8dp"-->
+<!--            android:background="@drawable/edittext_back1"-->
+<!--            android:hint="Medicine Number"-->
+<!--            android:inputType="text"-->
+<!--            android:paddingStart="15dp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textColorHint="#464646" />-->
 
 
         <EditText
