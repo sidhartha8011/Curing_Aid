@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Home.DashBoard">
+
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pieChart"
+        android:layout_width="385dp"
+        android:layout_height="262dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total Days Remaining of Each Medine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pieChart"
+        android:id="@+id/a12"
+        android:textStyle="bold"
+        />
+
+
+
+    <TableLayout
+        android:id="@+id/total_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        app:layout_constraintTop_toBottomOf="@id/a12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                style="@style/top"
+                android:layout_weight="2"
+                android:text="Medicines"
+                android:id="@+id/sub_id"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:id="@+id/middletf"
+                android:layout_weight="0"
+                android:layout_height="50dp"
+                style="@style/top"
+                android:text="Total"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:id="@+id/righttf"
+                android:layout_weight="0"
+                android:layout_height="50dp"
+                style="@style/top"
+                android:text="Attendence"
+                />
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                style="@style/top"
+                android:layout_weight="2"
+                android:text="Name"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="50dp"
+                style="@style/top"
+                android:text="Total"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="50dp"
+                style="@style/top"
+                android:text="Percentage"
+                />
+
+        </TableRow>
+    </TableLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

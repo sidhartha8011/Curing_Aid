@@ -144,6 +144,8 @@ class homeFragment : Fragment() {
                             tf4.isEnabled=false
 
                         }
+                    ref.update("Total", FieldValue.increment(1))
+
                     if((data!!.get("today").toString().toInt()+1)==data!!.get("times").toString().toInt()){
                         Toast.makeText(context, "Done this Meds for today stats will reset 8hr", Toast.LENGTH_LONG).show()
 
@@ -315,17 +317,13 @@ class homeFragment : Fragment() {
 
     fun updateDocumentAfterDelay(collection: String, document: String, fieldToUpdate: String, newValue: Int) {
         val mRunnable = Runnable {
-            // Update the document in Firestore
+
             val db = FirebaseFirestore.getInstance()
             val documentRef = db.collection(collection).document(document)
 
-            // Perform the update operation
             documentRef.update(fieldToUpdate, newValue)
-                .addOnSuccessListener {
-                    // Update operation successful
-                }
                 .addOnFailureListener { e ->
-                    // Update operation failed
+
                     Toast.makeText(
                         context,
                         e.message,

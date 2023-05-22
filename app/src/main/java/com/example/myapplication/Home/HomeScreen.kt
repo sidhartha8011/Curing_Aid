@@ -32,6 +32,9 @@ class HomeScreen : AppCompatActivity() {
                 R.id.navigation_Profile -> {
                     setFragment(profile())
                 }
+                R.id.navigation_dashboard->{
+                    setFragment(DashBoard())
+                }
 
             }
             true

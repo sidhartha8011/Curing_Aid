@@ -53,7 +53,7 @@ class NewDoses : Fragment() {
 
           //  val database = FirebaseDatabase.getInstance().getReference("Medicine")
            val ref=db.collection(auth!!.uid)
-            val data = MedData(name, days.toInt(), times.toInt())
+            val data = MedData(name, days.toInt(), times.toInt(),0,days.toInt())
             if (auth != null) {
 
 //                database.child(auth.uid).child(e4.text.toString()).setValue(data).addOnCompleteListener {
