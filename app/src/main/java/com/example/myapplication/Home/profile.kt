@@ -11,8 +11,13 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.myapplication.MainActivity
 import com.example.myapplication.R
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -64,6 +69,8 @@ class profile : Fragment() {
 
         }
 
+
+
         val signout:Button=view.findViewById(R.id.signout)
 
         signout.setOnClickListener {
@@ -74,7 +81,34 @@ class profile : Fragment() {
 
         }
 
+        // Call the function to get the document count in the "users" collection
+        getDocumentCount(auth!!.uid) { documentCount ->
+            // Use the document count
+            val tf:TextView=view.findViewById(R.id.numerOfMedicines)
+            tf.text=documentCount.toString()
+        }
+
+
     }
+
+
+    fun getDocumentCount(collection: String, onComplete: (Int) -> Unit) {
+        val db = FirebaseFirestore.getInstance()
+        val collectionRef: CollectionReference = db.collection(collection)
+
+        collectionRef.get()
+            .addOnCompleteListener(OnCompleteListener { task: Task<QuerySnapshot> ->
+                if (task.isSuccessful) {
+                    val querySnapshot = task.result
+                    val documentCount = querySnapshot?.size() ?: 0
+                    onComplete(documentCount)
+                } else {
+                    // Handle the error scenario
+                    onComplete(0)
+                }
+            })
+    }
+
 
 
 

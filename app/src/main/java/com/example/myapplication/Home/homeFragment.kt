@@ -1,6 +1,7 @@
 package com.example.myapplication.Home
 
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,6 +20,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FieldPath
 import com.google.firebase.firestore.FieldValue
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -142,9 +144,18 @@ class homeFragment : Fragment() {
                             tf4.isEnabled=false
 
                         }
+                    if((data!!.get("today").toString().toInt()+1)==data!!.get("times").toString().toInt()){
+                        Toast.makeText(context, "Done this Meds for today stats will reset 8hr", Toast.LENGTH_LONG).show()
+
+
+                        updateDocumentAfterDelay(auth.uid,documentID,"days",data!!.get("days").toString().toInt()-1)
+                        updateDocumentAfterDelay(auth.uid,documentID,"today",0)
+                    }
+
                 }
                 else{
                     Toast.makeText(context, "Don't take more Dosage for today", Toast.LENGTH_LONG).show()
+
                 }
             }
 
@@ -299,6 +310,34 @@ class homeFragment : Fragment() {
                 }
         }
     }
+
+    private val mHandler = Handler()
+
+    fun updateDocumentAfterDelay(collection: String, document: String, fieldToUpdate: String, newValue: Int) {
+        val mRunnable = Runnable {
+            // Update the document in Firestore
+            val db = FirebaseFirestore.getInstance()
+            val documentRef = db.collection(collection).document(document)
+
+            // Perform the update operation
+            documentRef.update(fieldToUpdate, newValue)
+                .addOnSuccessListener {
+                    // Update operation successful
+                }
+                .addOnFailureListener { e ->
+                    // Update operation failed
+                    Toast.makeText(
+                        context,
+                        e.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+        }
+        val lockTimeMillis: Long = 8 * 60 * 60 * 1000
+        // Schedule the document update after the specified time delay
+        mHandler.postDelayed(mRunnable, lockTimeMillis)
+    }
+
 
 
 
