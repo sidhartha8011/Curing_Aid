@@ -75,6 +75,17 @@ class homeFragment : Fragment() {
                 val Time = data?.get("times")
                 val today=data?.get("today")
 
+
+                if(Days==0){
+                   val ref=db.collection(auth!!.uid).document(documentID)
+
+                    ref.delete().addOnSuccessListener {
+                        Toast.makeText(context, "Medicine course Done it will deleted", Toast.LENGTH_LONG).show()
+
+                    }
+                }
+
+
                 if (name != null && Days != null && Time != null) {
                     tf1.isEnabled = true
                     tf2.isEnabled = true
@@ -186,6 +197,17 @@ class homeFragment : Fragment() {
                     val Days = data?.get("days")
                     val Time = data?.get("times")
                     val today=data?.get("today")
+
+                    if(Days.toString().toInt()==0){
+                        val ref=db.collection(auth!!.uid).document(documentID)
+
+                        ref.delete().addOnSuccessListener {
+                            Toast.makeText(context, "Medicine course Done it will deleted", Toast.LENGTH_LONG).show()
+
+                        }
+                    }
+
+
 
                     if (name != null && Days != null && Time != null) {
                         tf1.isEnabled = true
