@@ -14,7 +14,7 @@
         android:title="@string/title_dashboard"/>
 
     <item
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_selftest"
         android:enabled="true"
         android:icon="@drawable/navigation_testicon"
         android:title="@string/self_test"/>

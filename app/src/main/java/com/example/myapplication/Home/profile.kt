@@ -44,13 +44,14 @@ class profile : Fragment() {
 
         val database1=db.collection("Users")
 
-        val database2=FirebaseDatabase.getInstance().getReference("Medicine")
+       // val database2=FirebaseDatabase.getInstance().getReference("Medicine")
 
         val tf1:TextView=view.findViewById(R.id.ProfileName)
         val tf2:TextView=view.findViewById(R.id.profilenumber)
         val tf3:TextView=view.findViewById(R.id.profileEmail)
         val tf4:TextView=view.findViewById(R.id.profiledays)
         val tf5:TextView=view.findViewById(R.id.profileage)
+        val tf6:TextView=view.findViewById(R.id.scoreselft)
 
 
         database1.document(id.toString()).get().addOnSuccessListener {
@@ -59,6 +60,7 @@ class profile : Fragment() {
             val age=data?.get("age")
             val phoneno=data?.get("phoneNo")
             val days=data?.get("course")
+            val score=data?.get("score")
 
 
             tf1.text=name.toString()
@@ -66,7 +68,7 @@ class profile : Fragment() {
             tf3.text=auth?.email.toString()
             tf4.text=days.toString()
             tf5.text=age.toString()
-
+            tf6.text=score.toString()
         }
 
 

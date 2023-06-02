@@ -207,8 +207,6 @@ class homeFragment : Fragment() {
                         }
                     }
 
-
-
                     if (name != null && Days != null && Time != null) {
                         tf1.isEnabled = true
                         tf2.isEnabled = true

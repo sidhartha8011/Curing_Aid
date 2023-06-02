@@ -5,30 +5,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
 import com.example.myapplication.R
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [SelfTest.newInstance] factory method to
- * create an instance of this fragment.
- */
 class SelfTest : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,23 +24,75 @@ class SelfTest : Fragment() {
         return inflater.inflate(R.layout.fragment_self_test, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment SelfTest.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            SelfTest().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
+    private lateinit var submitButton: Button
+    private val correctAnswers = arrayOf(3, 3, 2, 4, 2, 1, 2, 2, 2, 3)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        submitButton = view.findViewById(R.id.submit_selftest)
+        submitButton.setOnClickListener {
+            submitAnswers()
+
+
+        }
+
+    }
+        private fun submitAnswers() {
+            var score = 0
+            for (i in 0 until NUM_QUESTIONS) {
+                val radioGroupId = resources.getIdentifier("optionRadioGroup${i + 1}", "id", requireContext().packageName)
+                val radioGroup = requireView().findViewById<RadioGroup>(radioGroupId)
+                val selectedRadioButtonId = radioGroup.checkedRadioButtonId
+
+                if (selectedRadioButtonId != -1) {
+                    val selectedRadioButton = requireView().findViewById<RadioButton>(selectedRadioButtonId)
+                    val selectedRadioButtonIndex = radioGroup.indexOfChild(selectedRadioButton)
+
+                    val isCorrect = selectedRadioButtonIndex + 1 == correctAnswers[i] // Compare with the correct answer position
+
+                    if (isCorrect) {
+                        score++
+                    }
                 }
             }
+
+            val scorePercentage = score * 100 / NUM_QUESTIONS
+            val message = "Score: $scorePercentage%"
+
+            val auth=FirebaseAuth.getInstance().currentUser
+            val db=Firebase.firestore
+
+            val ref=db.collection("Users").document(auth!!.uid)
+
+            ref.update("score", scorePercentage)
+                .addOnSuccessListener {
+                    Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+                }
+                .addOnFailureListener { e ->
+
+                    Toast.makeText(
+                        context,
+                        e.message,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+
+
+            resetQuiz()
+        }
+
+    private fun resetQuiz() {
+        for (i in 0 until NUM_QUESTIONS) {
+            val radioGroupId = resources.getIdentifier("optionRadioGroup${i + 1}", "id", requireContext().packageName)
+            val radioGroup = view?.findViewById<RadioGroup>(radioGroupId)
+            radioGroup?.clearCheck()
+        }
     }
+
+        companion object {
+            private const val NUM_QUESTIONS = 10
+        }
+
 }

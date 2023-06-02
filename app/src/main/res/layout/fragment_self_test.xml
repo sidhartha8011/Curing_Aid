@@ -1,9 +1,544 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home.SelfTest">
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/instructionTextView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="25sp"
+        android:text="SELF TEST"
+        android:textAlignment="center"
+
+        android:textColor="#014ACA" />
+
+    <TextView
+        android:id="@+id/instructionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textSize="20sp"
+        android:text="Answer the questions below:"
+        android:layout_below="@id/instructionTextView1"
+        android:textAlignment="center"
+
+        android:textColor="@color/primaryDarkColor" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/instructionTextView"
+        >
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <!-- Rest of your layout here -->
+        <TextView
+            android:id="@+id/questionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:textSize="20sp"
+            android:text="Are there any improvements in the condition?"
+            android:textColor="@color/primaryDarkColor"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/optionRadioGroup1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/questionTextView"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/edittext_back1"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/option1RadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="yes"
+                android:textStyle="bold"
+                android:textColor="@color/primaryColor" />
+
+            <RadioButton
+                android:id="@+id/option2RadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="no"
+                android:textStyle="bold"
+                android:textColor="@color/primaryColor" />
+
+            <RadioButton
+                android:id="@+id/option3RadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="degrading"
+                android:textStyle="bold"
+
+                android:textColor="@color/primaryColor" />
+        </RadioGroup>
+            <TextView
+                android:id="@+id/questionTextView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="20sp"
+
+                android:text="How regular are you with medicines prescribed?"
+                android:textColor="@color/primaryDarkColor"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/optionRadioGroup2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/questionTextView"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittext_back1"
+                android:layout_marginEnd="16dp"
+
+                android:textStyle="bold"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/option1RadioButton1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Regular"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+                <RadioButton
+                    android:id="@+id/option2RadioButton1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Rarely"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+                <RadioButton
+                    android:id="@+id/option3RadioButton1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Fairly regular"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/questionTextView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="20sp"
+                android:text="How is your appetite since the medication"
+                android:textColor="@color/primaryDarkColor"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/optionRadioGroup3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edittext_back1"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/option1RadioButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Good"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+                <RadioButton
+                    android:id="@+id/option2RadioButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Normal"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+                <RadioButton
+                    android:id="@+id/option3RadioButton2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="bad"
+                    android:textStyle="bold"
+
+                    android:textColor="@color/primaryColor" />
+            </RadioGroup>
+            <TextView
+                android:id="@+id/questionTextView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="20sp"
+
+                android:text="What does your normal diet look like?"
+                android:textColor="@color/primaryDarkColor"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/optionRadioGroup4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/questionTextView"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittext_back1"
+                android:layout_marginEnd="16dp"
+
+                android:textStyle="bold"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/option1RadioButton3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Well Balanced"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+                <RadioButton
+                    android:id="@+id/option2RadioButton3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Not Balanced"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+                <RadioButton
+                    android:id="@+id/option3RadioButton3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lacks all the nutrients"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+                <RadioButton
+                    android:id="@+id/option4RadioButton3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nutritious and full of supplements"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/questionTextView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="20sp"
+                android:text="Are there any visible symptoms?"
+                android:textColor="@color/primaryDarkColor"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/optionRadioGroup5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/questionTextView"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/edittext_back1"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/option1RadioButton4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Yes"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+                <RadioButton
+                    android:id="@+id/option2RadioButton4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="No"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+            </RadioGroup>
+            <TextView
+                android:id="@+id/questionTextView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="20sp"
+
+                android:text="Are you in touch with your consultant?"
+                android:textColor="@color/primaryDarkColor"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/optionRadioGroup6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/questionTextView"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/edittext_back1"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+
+                android:textStyle="bold"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/option1RadioButton5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Yes"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+                <RadioButton
+                    android:id="@+id/option2RadioButton5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="No"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
 
 
-</FrameLayout>
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/questionTextView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="20sp"
+                android:text="Blood Pressure Levels"
+                android:textColor="@color/primaryDarkColor"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/optionRadioGroup7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/questionTextView"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittext_back1"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical">
+
+
+                <RadioButton
+                    android:id="@+id/option1RadioButton6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="High"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+                <RadioButton
+                    android:id="@+id/option2RadioButton6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="normal"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+                <RadioButton
+                    android:id="@+id/option3RadioButton6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="low"
+                    android:textStyle="bold"
+
+                    android:textColor="@color/primaryColor" />
+            </RadioGroup>
+            <TextView
+                android:id="@+id/questionTextView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="20sp"
+
+                android:text="Fatigue Levels in Day-to-day basis:"
+                android:textColor="@color/primaryDarkColor"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/optionRadioGroup8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittext_back1"
+                android:layout_marginEnd="16dp"
+
+                android:textStyle="bold"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/option1RadioButton7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="High"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+                <RadioButton
+                    android:id="@+id/option2RadioButton7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Normal"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+                <RadioButton
+                    android:id="@+id/option3RadioButton7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="low"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/questionTextView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="20sp"
+                android:text="Body Temperature Levels:"
+                android:textColor="@color/primaryDarkColor"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/optionRadioGroup9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/questionTextView"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/edittext_back1"
+                android:layout_marginEnd="16dp"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/option1RadioButton8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="High"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+                <RadioButton
+                    android:id="@+id/option2RadioButton8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="Normal"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+                <RadioButton
+                    android:id="@+id/option3RadioButton8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Low"
+                    android:textStyle="bold"
+
+                    android:textColor="@color/primaryColor" />
+            </RadioGroup>
+            <TextView
+                android:id="@+id/questionTextView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textSize="20sp"
+                android:text="How is the fluid intake?"
+                android:textColor="@color/primaryDarkColor"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/optionRadioGroup10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/questionTextView"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+
+                android:textStyle="bold"
+                android:background="@drawable/edittext_back1"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/option1RadioButton9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="7 cups"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+                <RadioButton
+                    android:id="@+id/option2RadioButton9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:text="13 cups"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+
+                <RadioButton
+                    android:id="@+id/option3RadioButton9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="9 cups"
+                    android:textStyle="bold"
+                    android:textColor="@color/primaryColor" />
+            </RadioGroup>
+
+
+            <!-- Repeat the above layout for the remaining questions -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/submit_selftest"
+                android:layout_width="199dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/buttonstyle"
+                android:drawablePadding="35dp"
+                android:text="Submit Test"
+                android:textColor="@color/black"
+                android:textSize="10sp"
+                android:layout_marginBottom="10dp"/>
+        </LinearLayout>
+</ScrollView>
+</RelativeLayout>
